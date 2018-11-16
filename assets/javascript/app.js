@@ -5,22 +5,8 @@
 // The game ends when the time runs out. 
 // The page will reveal the number of questions that 
 // players answer correctly and incorrectly.
-$("#game-container").text("Trivia Game")
+// $("#game-container").text("Trivia Game")
 
-var gameContainer = $("#game-container");
-var resultsContainer = $("#game-results");
-var submitButton = $("#submit");
-
-function askQuestions () {
-}
-
-function displayResults () {
-    console.log("results")
-}
-
-askQuestions ();
-
-$("#submit").on("click", displayResults);
 // Question array containing question/answers as objects
 var myQuestions = [
     {
@@ -69,3 +55,21 @@ var myQuestions = [
                 correctAnswer: "b"
             },
 ]
+function askQuestions () {
+    var questionNum = 1;
+    for (i = 0; i < myQuestions.length; i++) {
+        console.log(myQuestions[i].question);
+        console.log(myQuestions[i].answers);
+        $("#game-container").append("<label>" + questionNum + ". " + myQuestions[i].question + "</label><br>");
+        $("#game-container").append("<input>" + myQuestions[i].answers.a + "</input><input>" + myQuestions[i].answers.b + "</input><input>" + myQuestions[i].answers.c + "</input><br>");
+        questionNum ++
+    }
+}
+
+function displayResults () {
+    console.log("results")
+}
+
+askQuestions ();
+
+$("#submit").on("click", displayResults);
