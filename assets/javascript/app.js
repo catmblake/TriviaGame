@@ -1,4 +1,5 @@
 $("#game-container").hide();
+$("#game-results").hide();
 $("#start").on("click", start);
 
 function start() {
@@ -15,7 +16,7 @@ function runTimer() {
     intervalId = setInterval(countdown, 1000);
 }
 
-function stop() {
+function stopTimer() {
     clearInterval(intervalId);
 }
 
@@ -26,17 +27,9 @@ function countdown() {
 
     if (timeLeft === 0) {
         displayResults();
-        stop();
+        stopTimer();
     }
 }
-// create a trivia form w/ multiple choice questions
-// player can only select one answer per question
-// The game ends when the time runs out. 
-// The page will reveal the number of questions that 
-// players answer correctly and incorrectly.
-// $("#game-container").text("Trivia Game")
-
-// Question array containing question/answers as objects
 var myQuestions = [
     {
         question: "What is the distance from the earth to the moon?",
@@ -84,20 +77,44 @@ var myQuestions = [
         correctAnswer: "b"
     },
 ]
+
+var questionNum = 1;
 function askQuestions() {
     $("#game-container").show();
-    var questionNum = 1;
     for (i = 0; i < myQuestions.length; i++) {
         $(".form").append("<label>" + questionNum + ". " + myQuestions[i].question + "</label><br>");
         $(".form").append('<input type="radio" name="question' + questionNum + '" value="a"> ' + myQuestions[i].answers.a + ' </input><input type="radio" name="question' + questionNum + '" value="b"> ' + myQuestions[i].answers.b + ' </input><input type="radio" name="question' + questionNum + '" value="c"> ' + myQuestions[i].answers.c + '</input><br>');
-        console.log(questionNum);
         questionNum++;
     }
+}
+
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var unanswered = 0;
+
+function getCheckedValue() {
+    for (var i = 0; i < myQuestions.length; i++) {
+        if ($('input[name="question' + (i + 1) + '"]:checked').val() === undefined) {
+            unanswered++;
+            console.log("unanswered", unanswered);
+        } else {
+            if ($('input[name="question' + (i + 1) + '"]:checked').val() === myQuestions[i].correctAnswer) {
+                correctAnswers++;
+                console.log("correct", correctAnswers);
+            } else {
+                incorrectAnswers++;
+                console.log("incorrect", incorrectAnswers);
+            }
+        }
     }
+    $("#game-results").html("<h2> Quiz Complete! </h2><br><h3>Correct Answers: " + correctAnswers + "</h3><br><h3>Incorrect Answers: " + incorrectAnswers + "</h3><br><h3>Unanswered: " + unanswered + "</h3>");
+}
 
 function displayResults() {
+    stopTimer();
+    getCheckedValue();
     $("#game-container").hide();
     $("#game-results").show();
 }
 
-$("#submit").on("click", displayResults);
+$("#submit").on("click", displayResults)
