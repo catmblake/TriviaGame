@@ -87,15 +87,13 @@ var myQuestions = [
 function askQuestions() {
     $("#game-container").show();
     var questionNum = 1;
-
     for (i = 0; i < myQuestions.length; i++) {
-        console.log(myQuestions[i].question);
-        console.log(myQuestions[i].answers);
         $(".form").append("<label>" + questionNum + ". " + myQuestions[i].question + "</label><br>");
-        $(".form").append('<input type="radio"> ' + myQuestions[i].answers.a + ' </input><input type="radio"> ' + myQuestions[i].answers.b + ' </input><input type="radio"> ' + myQuestions[i].answers.c + '</input><br>');
-        questionNum++
+        $(".form").append('<input type="radio" name="question' + questionNum + '" value="a"> ' + myQuestions[i].answers.a + ' </input><input type="radio" name="question' + questionNum + '" value="b"> ' + myQuestions[i].answers.b + ' </input><input type="radio" name="question' + questionNum + '" value="c"> ' + myQuestions[i].answers.c + '</input><br>');
+        console.log(questionNum);
+        questionNum++;
     }
-}
+    }
 
 function displayResults() {
     $("#game-container").hide();
