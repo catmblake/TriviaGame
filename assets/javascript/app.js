@@ -61,7 +61,7 @@ function askQuestions () {
         console.log(myQuestions[i].question);
         console.log(myQuestions[i].answers);
         $("#game-container").append("<label>" + questionNum + ". " + myQuestions[i].question + "</label><br>");
-        $("#game-container").append("<input>" + myQuestions[i].answers.a + "</input><input>" + myQuestions[i].answers.b + "</input><input>" + myQuestions[i].answers.c + "</input><br>");
+        $("#game-container").append('<input type="radio"> a. ' + myQuestions[i].answers.a + ' </input><input type="radio"> b. ' + myQuestions[i].answers.b + ' </input><input type="radio"> c. ' + myQuestions[i].answers.c + '</input><br>');
         questionNum ++
     }
 }
