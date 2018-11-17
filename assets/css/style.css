@@ -15,7 +15,6 @@ h1 {
     font-size: 56px;
     font-weight: bold;
 }
-
 h2 {
     font-size: 48px;
 }
@@ -36,11 +35,15 @@ color: whitesmoke;
 button {
     border-radius: 10px;
     padding: 10px;
+    margin-top: 20px;
     border: 2px solid rgb(7, 7, 37);
 }
-button:hover {
+#start:hover {
     background:  rgb(7, 7, 37);
     color: whitesmoke;
+}
+label {
+    margin-bottom: 0;
 }
 #submit {
     background:  rgb(7, 7, 37);
@@ -51,9 +54,21 @@ button:hover {
     color: rgb(7, 7, 37);
 }
 @media screen and (max-width: 768px) {
+    body {
+        font-size: 18px;
+    }
     .container {
         width: 600px;
         height: 600px;
+    }
+    h1 {
+        font-size: 48px;
+    }
+    h2 {
+        font-size: 36px;
+    }
+    h3 {
+        font-size: 32px;
     }
 }
 @media screen and (max-width: 640px) {
@@ -65,12 +80,12 @@ button:hover {
         height: 600px;
     }
     h1 {
-        font-size: 28px;
+        font-size: 36px;
     }
     h2 {
         font-size: 24px;
     }
     h3 {
         font-size: 18px;
-}
+    }
 }
