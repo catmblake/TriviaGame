@@ -1,12 +1,12 @@
 body {
     background: url("../images/milky-way-starry-sky-night-sky-star.jpg");
     font-size: 24px;
+    color: rgb(7, 7, 37);
 }
 .container {
     opacity: 0.8;
     text-align: center; 
     padding-top: 40px;
-    background: url("../images/sky-earth-space-working.jpg");
     width: 768px;
     height: 765px;
 }
@@ -19,9 +19,19 @@ h1 {
 h2 {
     font-size: 48px;
 }
+h3 {
+    font-size: 36px;
+}
+#start-container {
+    background: url("../images/sky-earth-space-working.jpg");
+}
 #game-container {
     background: whitesmoke;
-    line-height: 1.5;
+    line-height: 2;
+}
+#game-results {
+background: rgb(7, 7, 37);
+color: whitesmoke;
 }
 button {
     border-radius: 10px;
@@ -31,4 +41,36 @@ button {
 button:hover {
     background:  rgb(7, 7, 37);
     color: whitesmoke;
+}
+#submit {
+    background:  rgb(7, 7, 37);
+    color: whitesmoke;
+}
+#submit:hover {
+    background:  whitesmoke;
+    color: rgb(7, 7, 37);
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 600px;
+        height: 600px;
+    }
+}
+@media screen and (max-width: 640px) {
+    body {
+        font-size: 12px;
+    }
+    .container {
+        width: 400px;
+        height: 600px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    h3 {
+        font-size: 18px;
+}
 }

@@ -1,3 +1,4 @@
+$(document).ready(function() {
 $("#game-container").hide();
 $("#game-results").hide();
 $("#start").on("click", start);
@@ -10,7 +11,6 @@ function start() {
 
 var timeLeft = 30;
 var intervalId;
-
 function runTimer() {
     clearInterval(intervalId);
     intervalId = setInterval(countdown, 1000);
@@ -22,9 +22,7 @@ function stopTimer() {
 
 function countdown() {
     timeLeft--;
-
     $("#countdown-timer").html("<h3>Time Remaining: " + timeLeft + " seconds</h3>");
-
     if (timeLeft === 0) {
         displayResults();
         stopTimer();
@@ -91,7 +89,6 @@ function askQuestions() {
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0;
-
 function getCheckedValue() {
     for (var i = 0; i < myQuestions.length; i++) {
         if ($('input[name="question' + (i + 1) + '"]:checked').val() === undefined) {
@@ -118,3 +115,4 @@ function displayResults() {
 }
 
 $("#submit").on("click", displayResults)
+});
