@@ -25,12 +25,14 @@ h3 {
     background: url("../images/sky-earth-space-working.jpg");
 }
 #game-container {
+    display: none;
     background: whitesmoke;
     line-height: 2;
 }
 #game-results {
-background: rgb(7, 7, 37);
-color: whitesmoke;
+    display: none;
+    background: rgb(7, 7, 37);
+    color: whitesmoke;
 }
 button {
     border-radius: 10px;

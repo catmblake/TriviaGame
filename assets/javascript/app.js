@@ -1,12 +1,6 @@
 //wrapping the script in the document ready function 
 $(document).ready(function () {
-    $("#game-container").hide();
-    $("#game-results").hide();
-    //creating start button and adding it to the start container. User clicks to begin the quiz
-    var startBtn = $("<button>");
-    $("#start-container").append(startBtn);
-    $(startBtn).attr("id", "start");
-    $("#start").html("Start Quiz");
+    //User clicks to begin the quiz
     $("#start").on("click", start);
     //start function hides start container and calls timer and question functions to run the quiz
     function start() {
